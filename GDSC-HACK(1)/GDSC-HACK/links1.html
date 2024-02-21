@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Content based on Dropdown</title>
+  <style>
+    #content-container {
+      max-width: 600px;
+      margin: 20px auto;
+    }
+  </style>
+</head>
+<body>
+<center><h1>FIND A JOB</h1></center>
+  <div id="content-container">
+    <label for="category">Select Category:</label>
+    <select id="category" onchange="updateContent()">
+        <option value="">Select</option>
+        <option value="drawing">Drawing</option>
+        <option value="pottery">Pottery</option>
+        <option value="designing">Designing</option>
+        <option value="stiching">Stiching</option>
+        <option value="painting">Painting</option>
+        <option value="others">Others</option>
+    </select>
+
+    <div id="dynamic-content">
+        <p id="drawing-content"><a href="https://www.upwork.com/freelance-jobs/drawing/">Upwork[Drawing]</a></p>
+        <p id="pottery-content"><a href="https://www.indeed.com/q-pottery-l-anywhere-jobs.html?vjk=b9b0ddfd4e3a087a">Indeed[pottery]</a></p>
+        <p id="designing-content"><a href="https://www.google.com/search?q=job+hiring+websites+for+fashion+designers&oq=job+hiring+websites+for+fasho&gs_lcrp=EgZjaHJvbWUqCQgBECEYChigATIGCAAQRRg5MgkIARAhGAoYoAEyCQgCECEYChigATIHCAMQIRifBTIHCAQQIRifBTIHCAUQIRifBTIHCAYQIRifBTIHCAcQIRifBTIHCAgQIRifBTIHCAkQIRifBdIBCTI2Mjk2ajBqN6gCALACAA&sourceid=chrome&ie=UTF-8&ibp=htl;jobs&sa=X&ved=2ahUKEwjmnt7mmo-EAxX4SWwGHa0QAwIQkd0GegQIEBAB#fpstate=tldetail&htivrt=jobs&htiq=job+hiring+websites+for+fashion+designers&htidocid=znt-GTc-sj7uoMrRAAAAAA%3D%3D&sxsrf=ACQVn08Cz145hcgJawMEpjLY_ZBZdG7Dxw:1706964637231">Google[Fashion Designer]</a></p>
+        <p id="stiching-content"><a href="https://www.upwork.com/freelance-jobs/embroidery/">Upwork[Embroidery]</a><br>
+        <a href="https://www.naukri.com/embroidery-jobs">naukri[Embroidery]</a></p>
+        <p id="painting-content"><a href="https://www.freelancer.in/jobs/painting">freelancer[painting]</a></p>
+      </div>
+  </div>
+
+  <script>
+    function updateContent() {
+        var selectedCategory = document.getElementById("category").value;
+    
+    var drawingContent = document.getElementById("drawing-content");
+    var potteryContent = document.getElementById("pottery-content");
+    var designingContent = document.getElementById("designing-content");
+    var stichingContent = document.getElementById("stiching-content");
+    var paintingContent = document.getElementById("painting-content");
+
+      // Set all paragraphs to be hidden
+      drawingContent.style.display = "none";
+      potteryContent.style.display = "none";
+      designingContent.style.display = "none";
+      stichingContent.style.display = "none";
+      paintingContent.style.display = "none";
+
+      // Display the selected paragraph
+      if (selectedCategory === "drawing") {
+            drawingContent.style.display = "block";
+          } else if (selectedCategory === "pottery") {
+            potteryContent.style.display = "block";
+          } else if (selectedCategory === "designing") {
+            designingContent.style.display = "block";
+          }else if (selectedCategory === "stiching") {
+            stichingContent.style.display = "block";
+          }else if (selectedCategory === "painting") {
+            paintingContent.style.display = "block";
+          }
+        }
+  </script>
+
+</body>
+</html>

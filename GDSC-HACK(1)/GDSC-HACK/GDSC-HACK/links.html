@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Links</title>
+    <style>
+    #content-container {
+      max-width: 600px;
+      margin: 20px auto;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <img src="wire1.jpg" alt="Image">
+        </div>
+        <div class="right">
+            <div class="signup-container">
+                <h2>Upload</h2>
+                <form id="signup-form">
+                    <div id="content-container">
+                        <label for="category">Select Category:</label>
+                        <select id="category" onchange="updateContent()">
+                          <option value="">Select</option>
+                          <option value="drawing">Drawing</option>
+                          <option value="pottery">Pottery</option>
+                          <option value="designing">Designing</option>
+                          <option value="stiching">Stiching</option>
+                          <option value="painting">Painting</option>
+                          <option value="others">Others</option>
+                        </select>
+                    
+                        <div id="dynamic-content">
+                          <p id="drawing-content">This is the drawing content.</p>
+                          <p id="pottery-content">This is the Pottery content.</p>
+                          <p id="designing-content">This is the Designing content.</p>
+                          <p id="stiching-content">This is the Stiching content.</p>
+                          <p id="painting-content">This is the Painting content.</p>
+                        </div>
+                      </div>
+                   
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        function updateContent() {
+          var selectedCategory = document.getElementById("category").value;
+    
+          var drawingContent = document.getElementById("drawing-content");
+          var potteryContent = document.getElementById("pottery-content");
+          var designingContent = document.getElementById("designing-content");
+          var stichingContent = document.getElementById("stiching-content");
+          var paintingContent = document.getElementById("painting-content");
+    
+          // Set all paragraphs to be hidden
+          paintingContent.style.display = "none";
+          designingContent.style.display = "none";
+          fashionContent.style.display = "none";
+    
+          // Display the selected paragraph
+          if (selectedCategory === "drawing") {
+            drawingContent.style.display = "block";
+          } else if (selectedCategory === "pottery") {
+            potteryContent.style.display = "block";
+          } else if (selectedCategory === "designing") {
+            designingContent.style.display = "block";
+          }else if (selectedCategory === "stiching") {
+            stichingContent.style.display = "block";
+          }else if (selectedCategory === "painting") {
+            paintingContent.style.display = "block";
+          }
+        }
+      </script>
+</body>
+</html>
